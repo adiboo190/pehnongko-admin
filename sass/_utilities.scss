@@ -1,0 +1,168 @@
+// Utilities
+
+a, button {
+	outline: 0;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+  z-index: 9999;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  z-index: 9999;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  z-index: 9999;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  z-index: 9999;
+}
+
+// Navbar
+.navbar {
+	&.bg {
+		&-light, &-white {
+			.nav-link {
+				color: $gray-500;
+			}
+		}
+		&-primary, &-dark, &-secondary, &-success, &-danger, &-info, &-warning {
+			.nav-link {
+				color: $white !important;
+			}
+		}
+	}
+	@media (max-width: $display-on-sm) {
+		.megamenu-container-sm {
+			position: static;
+			.dropdown-menu {
+				width: calc(100% - 1rem);
+				right: .5rem;
+			}
+		}
+	}
+	@media (min-width: $display-on-sm) {
+		.megamenu-container-sm .dropdown-menu {
+			max-width: 700px;
+		}
+	}
+
+	.dropdown-menu.messages {
+		.dropdown-scroll {
+			max-height: 300px;
+			overflow-y: auto !important;
+			overflow-x: hidden;
+		}
+		.dropdown-item {
+			padding: .75rem 1.5rem;
+			&:focus, {
+				.text-light, .text-danger, .text-primary, .text-success, .text-muted, .text-dark, .text-warning, .text-info {
+					color: $white !important;
+				}
+			}
+			.dropdown-message {
+				position: relative;
+				margin-right: 1rem!important;
+				img.profile-img {
+					height: 2.5rem;
+					width: 2.5rem;
+				}
+				.indicator {
+				    background-color: #eaecf4;
+				    height: .75rem;
+				    width: .75rem;
+				    border-radius: 100%;
+				    position: absolute;
+				    top: 0;
+				    right: 0;
+				    border: .125rem solid #fff;
+				}
+			}
+		}
+	}
+}
+
+// Card Dashboard
+.card {
+	&.no-line {
+		border: 0;
+	}
+	&.card-dashboard {
+		border: 0;
+		h1, .h1,
+		h2, .h2,
+		h3, .h3,
+		h4, .h4,
+		h5, .h5,
+		h6, .h6 {
+			font-size: $font-size-sm;
+			font-weight: normal;
+		}
+		p {
+			font-size: $h4-font-size;
+			font-weight: bold;
+		}
+		.icon-info {
+			padding: .75rem 1rem;
+			width: 50px;
+			height: 50px;
+			float: right;
+			text-align: right;
+			border-radius: 5px;
+		} 
+	}
+}
+
+// Dropdown Menu
+.dropdown-menu {
+	border: 0 !important;
+	box-shadow: 1px 1px 6px rgba(0,0,0,.2);
+}
+
+
+// Addons
+#masthead .breadcrumb {
+	margin: 0;
+	padding: .5rem 0;
+	.breadcrumb-item {
+		font-size: $font-size-sm;
+		&:before {
+			color: rgba($white, .85);
+		}
+		a {
+			font-size: $font-size-sm;
+			color: rgba($white, .85);
+			text-decoration: none;
+		}
+		&.active {
+			color: $white;
+		}
+	}
+}
+
+.page-heading {
+	margin-top: 1rem;
+	.heading {
+		font-size: $font-size-base * 1.85;
+		font-weight: 500;
+		&:before {
+			content: '\f111';
+		    width: 1rem;
+		    text-align: center;
+		    vertical-align: 0;
+		    border: 0;
+		    font-weight: 900;
+		    font-family: 'Font Awesome 5 Free';
+		    margin-right: 1rem;
+		    color: $indigo;
+		    font-size: 1.85rem;
+		}
+	}
+	p {
+		margin-left: 3rem;
+	}
+}

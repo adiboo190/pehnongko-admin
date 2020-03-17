@@ -1,0 +1,93 @@
+// Colors
+
+$blue:    #4291FF !default;
+$indigo:  #7A4DFF !default;
+$purple:  #AD4AFF !default;
+$pink:    #FF3DD8 !default;
+$red:     #EB4742 !default;
+$orange:  #E86D38 !default;
+$yellow:  #FFAB3D !default;
+$green:   #28a745 !default;
+$teal:    #0CB07F !default;
+$cyan:    #049FC7 !default;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Other Variable
+// Media Breakpoints
+$display-on-xl:							1200px;
+$display-on-lg:							992px;
+$display-on-md:							768px;
+$display-on-sm:							576px;
+$display-on-xs:							0;
+
+// Font Base
+
+$font-family-sans-serif:      			-apple-system, BlinkMacSystemFont, "Nunito", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif-heading:      	-apple-system, BlinkMacSystemFont, "Source Sans Pro", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       			SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            			$font-family-sans-serif !default;
+$font-family-base-heading:            	$font-family-sans-serif-heading !default;
+
+$font-size-base:              			1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                			$font-size-base * 1.25 !default;
+$font-size-sm:                			$font-size-base * .875 !default;
+
+$h1-font-size:                			$font-size-base * 2.75 !default;
+$h2-font-size:                			$font-size-base * 2.25 !default;
+$h3-font-size:                			$font-size-base * 2 !default;
+$h4-font-size:                			$font-size-base * 1.75 !default;
+$h5-font-size:                			$font-size-base * 1.5 !default;
+$h6-font-size:                			$font-size-base !default;
+
+
+// Animations
+@keyframes sembul {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+// Core
+* {
+  font-family: $font-family-base;
+}
+
+body {
+	background: #f9fbfd !important;
+	overflow-x: hidden !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family-base-heading;
+}
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
+
+// Global CSS
+.no-caret::after { 
+	display: none !important; 
+	content: '' !important; 
+}

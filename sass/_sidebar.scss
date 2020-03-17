@@ -1,0 +1,275 @@
+// Sidebar Layout
+
+// Sidebar Main
+.sidebar-main {
+	min-width: 300px;
+	min-height: 100vh;
+	background: white;
+	color: #00091b;
+	transition: .2s all;
+	@media (max-width: $display-on-sm) {
+		position: fixed;
+		z-index: 1850;
+		margin-left: -350px;
+		overflow-y: hidden;
+		max-height: 100vh;
+	}
+
+	.toggled & {
+		min-width: 75px !important;
+		@media (max-width: $display-on-sm) {
+			position: fixed;
+			max-height: 100vh;
+			width: 350px;
+			margin: 0;
+			overflow-y: auto;
+		}
+	}
+}
+
+// Sidebar Header
+.sidebar-main .sidebar-heading {
+	min-height: 3.5rem;
+	padding: 0 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img {
+		max-height: 30px;
+		width: auto;
+	}
+
+	@media (max-width: $display-on-sm) {
+		.show-img-lg { display: inline-block; }
+		.show-img-sm { display: none; }
+	}
+	@media (min-width: $display-on-sm) {
+		.show-img-lg { 
+			display: inline-block; 
+			.toggled & {
+				display: none;
+			}
+		}
+		.show-img-sm { 
+			display: none; 
+			.toggled & {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+// Sidebar Menu Wrapper
+#sidemenu-wrapper {
+	padding: 1rem 1.5rem;
+	.nav {
+		.nav-heading {
+			font-size: $font-size-base * 0.75;
+			color: rgba($black, .5);
+			@media (min-width: $display-on-sm) {
+				.toggled & {
+					text-align: center;
+				}
+			}
+		}
+		.nav-separator {
+			border-bottom: 1px solid rgba($black, .1);
+			margin: 1rem;
+		}
+		.nav-link {
+			.badge-sidebar {
+				position: absolute;
+				font-size: .65rem;
+				margin-top: -7px;
+				margin-left: -5px;
+			}
+			@media (min-width: $display-on-sm) {
+				.toggled & {
+					text-align: center;
+				}
+			}
+			border-radius: 5px;
+			color: $gray-700;
+			padding: .5rem .75rem;
+			margin-bottom: .25rem;
+			transition: .2s all;
+			&:hover {
+				background: rgba($indigo, .1);
+			}
+			&:focus, &:active, &.active {
+				background: rgba($indigo, 1);
+				color: $white;
+				box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+			}
+			.nav-icon {
+				margin-right: 1rem;
+			}
+			@media (min-width: $display-on-sm) {
+				.toggled & .nav-text {
+					display: none;
+				}
+				.toggled & .nav-icon {
+					margin: 0;
+					text-align: center;
+					justify-content: center;
+				}
+			}
+			&.collapsed[data-toggle="collapse"]::after {
+			    width: 1rem;
+			    text-align: center;
+			    float: right;
+			    vertical-align: 0;
+			    border: 0;
+			    font-weight: 900;
+			    font-family: 'Font Awesome 5 Free';
+			    content: '\f105';
+			    @media (min-width: $display-on-md){
+    			    .toggled & {
+    			    	display: none;
+    			    }
+			    }
+			}
+			&[data-toggle="collapse"]::after {
+			    width: 1rem;
+			    text-align: center;
+			    float: right;
+			    vertical-align: 0;
+			    border: 0;
+			    font-weight: 900;
+			    font-family: 'Font Awesome 5 Free';
+			    content: '\f106';
+			    @media (min-width: $display-on-md){
+    			    .toggled & {
+    			    	display: none;
+    			    }
+			    }
+			}
+		}
+		@media (min-width: $display-on-md) {
+			.toggled & .collapse-first.collapsing {
+				display: none;
+				transition: none;
+			}
+			.toggled & .collapse-first {
+				position: absolute;
+				z-index: 9999;
+				left: 90px;
+				margin-top: -3.5rem;
+				margin-left: 1.75rem;
+				box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+				border-radius: 5px;
+				background: $white;
+				min-width: 300px;
+				max-height: 300px;
+				overflow-y: auto;
+				animation-name: sembul;
+				animation-duration: .3s;
+			}
+		}
+		.collapse-inner {
+		    @media (min-width: $display-on-md){
+			    margin: 1rem;
+		    }
+		    @media (max-width: $display-on-md){
+			    padding: 1rem;
+		    }
+			margin-left: 1rem;
+			margin-right: 1rem;
+			display: flex;
+			flex-direction: column !important;
+			.collapse-heading {
+				font-size: $font-size-base * 0.75;
+				color: rgba($black, .5);
+				padding: 0 .5rem;
+			}
+			.collapse-separator {
+				border-bottom: 1px solid rgba($black, .1);
+				margin: 1rem;
+			}
+			.collapse-item {
+				padding: .5rem 1rem;
+				color: $gray-700;
+				border-radius: 5px;
+				margin-bottom: .25rem;
+				.badge-sidebar {
+					position: absolute;
+					font-size: .65rem;
+					margin-top: -7px;
+					margin-left: -5px;
+				}
+				&:hover {
+					background: rgba($indigo, .1);
+					text-decoration: none;
+				}
+				&:focus, &:active, &.active {
+					background: rgba($indigo, 1);
+					color: $white;
+					box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+				}
+
+				&.collapsed[data-toggle="collapse"]::after {
+				    width: 1rem;
+				    text-align: center;
+				    float: right;
+				    vertical-align: 0;
+				    border: 0;
+				    font-weight: 900;
+				    font-family: 'Font Awesome 5 Free';
+				    content: '\f105';
+				}
+				&[data-toggle="collapse"]::after {
+				    width: 1rem;
+				    text-align: center;
+				    float: right;
+				    vertical-align: 0;
+				    border: 0;
+				    font-weight: 900;
+				    font-family: 'Font Awesome 5 Free';
+				    content: '\f106';
+				}
+			}
+
+			.collapse-submenu {
+				padding: .5rem 0;
+				display: flex;
+				flex-direction: column;
+				margin-left: 1rem;
+				.collapse-submenu-heading {
+					font-size: $font-size-base * 0.75;
+					color: rgba($black, .5);
+					padding: 0 .5rem;
+				}
+				.collapse-submenu-separator {
+					border-bottom: 1px solid rgba($black, .1);
+					margin: 1rem 0;
+				}
+				.collapse-submenu-item {
+					.badge-sidebar {
+						position: absolute;
+						font-size: .65rem;
+						margin-top: -7px;
+						margin-left: -5px;
+					}
+					padding: .5rem 1rem;
+					color: $gray-700;
+					border-radius: 5px;
+					margin-bottom: .25rem;
+					&:hover {
+						background: rgba($indigo, .1);
+						text-decoration: none;
+					}
+					&:focus, &:active, &.active {
+						background: rgba($indigo, 1);
+						color: $white;
+						box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Sidebar Footer
+.sidebar-footer {
+	text-align: center;
+}

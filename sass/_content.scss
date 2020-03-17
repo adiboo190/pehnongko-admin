@@ -1,0 +1,20 @@
+// Content Main
+
+#content-wrapper {
+	transition: .2s all;
+	width: calc(100% - 300px);
+	@media (max-width: $display-on-md) {
+		width: 100%
+	}
+	min-height: 100vh;
+	.toggled & {
+		width: calc(100% - 100px);
+		@media (max-width: $display-on-md) {
+			width: 100%
+		}
+	}
+}
+
+.content {
+	flex: 1 0 auto;
+}
